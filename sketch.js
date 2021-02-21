@@ -31,9 +31,8 @@ function setup(){
 function draw() {
     background(rgb(169,169,169));
     //create edgeSprite
-    createEdgeSprites();
-
-    ball.bounceOff(createEdgeSprites);
+    edges = createEdgeSprites();
+    ball.bounceOff(edges);
 
     if(keyDown("space")){
         ball.velocityX = 6;
@@ -41,29 +40,30 @@ function draw() {
     }
     //add condition to check if box touching surface and make it box
 
-    /*if(box1.isTouching(ball)){
-        ball.bounceOff(box1)
-        ball.shapecolor = rgb(255,204,204);
+    if(box1.isTouching(ball)){
+        ball.shapeColor = rgb(255,204,204);
+        ball.bounceOff(box1);
+        
         music.play();
     }
 
     if(box2.isTouching(ball)){
-        ball.velocity = 0
-        ball.shapecolor = rgb(255,204,204);
+        ball.shapeColor = rgb(204,255,204);
+        ball.velocity = 0;
         music.stop();
     }
 
     if(box3.isTouching(ball)){
-        ball.bounceOff(box3)
-        ball.shapecolor = rgb(255,204,204);
+        ball.shapeColor = rgb(229,204,255);
+        ball.bounceOff(box3);
         music.play();
     }
 
     if(box4.isTouching(ball)){
-        ball.bounceOff(box4)
-        ball.shapecolor = rgb(255,204,204);
+        ball.shapeColor = rgb(255,255,204);
+        ball.bounceOff(box4);
         music.play();
-    }*/
+    }
 
 
     drawSprites();
